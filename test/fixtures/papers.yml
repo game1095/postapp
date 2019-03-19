@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2019-03-19
+  dated: 2019-03-19
+  description: MyText
+  remark: MyText
+  mistake_type: one
+  operation: one
+  source: one
+
+two:
+  day: 2019-03-19
+  dated: 2019-03-19
+  description: MyText
+  remark: MyText
+  mistake_type: two
+  operation: two
+  source: two

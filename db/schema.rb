@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_152507) do
+ActiveRecord::Schema.define(version: 2019_03_19_130536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,30 @@ ActiveRecord::Schema.define(version: 2019_03_18_152507) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "papers", force: :cascade do |t|
+    t.date "day"
+    t.date "dated"
+    t.text "description"
+    t.text "remark"
+    t.bigint "mistake_type_id"
+    t.bigint "operation_id"
+    t.bigint "source_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mistake_type_id"], name: "index_papers_on_mistake_type_id"
+    t.index ["operation_id"], name: "index_papers_on_operation_id"
+    t.index ["source_id"], name: "index_papers_on_source_id"
+  end
+
+  create_table "papers_staff", id: false, force: :cascade do |t|
+    t.bigint "paper_id"
+    t.bigint "staff_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paper_id"], name: "index_papers_staff_on_paper_id"
+    t.index ["staff_id"], name: "index_papers_staff_on_staff_id"
+  end
+
   create_table "sources", force: :cascade do |t|
     t.integer "code"
     t.string "name"
@@ -56,6 +80,9 @@ ActiveRecord::Schema.define(version: 2019_03_18_152507) do
     t.index ["gender_id"], name: "index_staffs_on_gender_id"
   end
 
+  add_foreign_key "papers", "mistake_types"
+  add_foreign_key "papers", "operations"
+  add_foreign_key "papers", "sources"
   add_foreign_key "staffs", "departments"
   add_foreign_key "staffs", "genders"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_130536) do
+ActiveRecord::Schema.define(version: 2019_03_19_155008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,13 +54,11 @@ ActiveRecord::Schema.define(version: 2019_03_19_130536) do
     t.index ["source_id"], name: "index_papers_on_source_id"
   end
 
-  create_table "papers_staff", id: false, force: :cascade do |t|
-    t.bigint "paper_id"
-    t.bigint "staff_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["paper_id"], name: "index_papers_staff_on_paper_id"
-    t.index ["staff_id"], name: "index_papers_staff_on_staff_id"
+  create_table "papers_staffs", id: false, force: :cascade do |t|
+    t.bigint "staff_id", null: false
+    t.bigint "paper_id", null: false
+    t.index ["paper_id", "staff_id"], name: "index_papers_staffs_on_paper_id_and_staff_id"
+    t.index ["staff_id", "paper_id"], name: "index_papers_staffs_on_staff_id_and_paper_id"
   end
 
   create_table "sources", force: :cascade do |t|

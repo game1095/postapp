@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Postapp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
+<head>
+  <title>Postapp</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+              <span>
+                <i class="fa fa-user fa-5x"></i>
+              </span>
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear"> <span class="block m-t-xs">
+                  <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                    <li><%= link_to 'Logout' , method: :delete %></li>
+                  </ul>
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="logo-element">
+                IN+
+              </div>
+            </li>
+              <li>
+                <%= link_to 'ป.143' ,class: 'nav-label' %>
+              </li>
+              <li>
+                <%= link_to 'รายชื่อพนักงาน' , staffs_path , class: 'nav-label' %>
+              </li>
+              <li>
+                <%= link_to 'รายงาน' , class: 'nav-label'%>
+              </li>
+              <li>
+                <%= link_to 'FAQ' , class: 'nav-label'%>
+              </li>
+          </ul>
+      </div>
+    </nav>
+      <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+          <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+            <!-- ด้านบนหัวสุดเลยสัส -->
+          </nav>
+        </div>
+        <div class="wrapper wrapper-content">
+          <%= yield %>
+        </div>
+        <div class="footer">
+          <div class="pull-right">
+            10GB of <strong>250GB</strong> Free.
+          </div>
+          <div>
+            <strong>Copyright</strong> Example Company &copy; 2014-2015
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-</html>
+  </html>

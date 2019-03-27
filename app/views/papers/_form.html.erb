@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>เพิ่ม ป.143</h5>
+      </div>
+      <div class="ibox-tools">
+
+      </div>
+      <div class="ibox-content">
+        <%= form_for @paper do |form| %>
+          <div class="form-group">
+            <%= form.label :ประจำวันที่ , class:'control-label' %>
+            <%= form.date_field :day , class:'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :ลงวันที่ , class:'control-label' %>
+            <%= form.date_field :dated , class:'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :รายละเอียด , class: 'control-label' %>
+            <%= form.text_area :description , class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :แผนก , class: 'control-label' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :ความผิดพลาด , class: 'control-label' %>
+            <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบุแผนก"} , require: true  , class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :การดำเนินการ  , class: 'control-label' %>
+            <%= form.collection_select :operation_id , Operation.all , :id , :name , {prompt: 'โปรดระบุการดำเนินการ'} , require: true , class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :ต้นทาง , class: 'control-label' %>
+            <%= form.collection_select  :source_id , Source.all , :id , :name , {prompt: 'โปรดระบุต้นทาง'} , require: true , class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :หมายเหตุ , class: 'control-label' %>
+            <%= form.text_area :remark , class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= form.submit 'บันทึกผล' , class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

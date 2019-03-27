@@ -4,4 +4,14 @@ class Paper < ApplicationRecord
   belongs_to :source
 
   has_and_belongs_to_many :staff
+
+  def operationCheck
+    if self.operation.id == 2
+      return "badge badge-warning"
+    elsif self.operation.id == 1
+      return "badge badge-success"
+    end
+  end
+
+  
 end

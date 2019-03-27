@@ -1,38 +1,44 @@
-<div class="col-md-6 col-md-offset-3">
-  <div class="ibox float-e-margins">
-    <div class="ibox-title">
-      <h5>รายละเอียดพนักงาน</h5>
-    </div>
-    <div class="">
-      <div class="ibox-content no-padding border-left-right">
-        <!-- เอาไว้ใส่รูป -->
+<div class="row">
+  <div class="col-md-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>รายละเอียดพนักงาน</h5>
       </div>
-      <div class="ibox-content profile-content">
-        <h2>
-          <strong><%= @staff.name %></strong>
-        </h2>
+      <div class="">
+        <div class="ibox-content no-padding border-left-right">
+          <!-- เอาไว้ใส่รูป -->
+        </div>
+        <div class="ibox-content profile-content">
+          <h2>
+            <strong><%= @staff.name %></strong>
+          </h2>
 
-        <div class="hr-line-dashed"></div>
+          <div class="hr-line-dashed"></div>
 
-        <h3>
-          เกี่ยวกับ
-        </h3>
-        <p>
-          แผนก : <%= @staff.department.name %>
-        </p>
-        <p>
-          เพศ : <%= @staff.gender.name %>
-        </p>
-        <p>
-          ที่อยู่ :
-        </p>
-        <p>
-          หมายเลขโทรศัพท์ :
-        </p>
-        <p>
-          อีเมล์ :
-        </p>
+          <h3>
+            เกี่ยวกับ
+          </h3>
+          <p>
+            แผนก : <%= @staff.department.name %>
+          </p>
+          <p>
+            ตำแหน่ง :
+          </p>
+          <p>
+            เพศ : <%= @staff.gender.name %>
+          </p>
+          <p>
+            ที่อยู่ :
+          </p>
+          <p>
+            หมายเลขโทรศัพท์ :
+          </p>
+          <p>
+            อีเมล์ :
+          </p>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

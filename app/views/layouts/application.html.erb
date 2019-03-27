@@ -5,7 +5,9 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'animate', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true  %>
 </head>
 <body>
   <div id="wrapper">
@@ -29,13 +31,19 @@
               </div>
             </li>
               <li>
-                <%= link_to 'ป.143' ,class: 'nav-label' %>
+                <%= link_to 'Dashboard'  ,class: 'nav-label' %>
+              </li>
+              <li>
+                <%= link_to 'ป.143' , papers_path ,class: 'nav-label' %>
               </li>
               <li>
                 <%= link_to 'รายชื่อพนักงาน' , staffs_path , class: 'nav-label' %>
               </li>
               <li>
                 <%= link_to 'รายงาน' , class: 'nav-label'%>
+              </li>
+              <li>
+                <%= link_to 'กระดานผู้นำ' , class: 'nav-label' %>
               </li>
               <li>
                 <%= link_to 'FAQ' , class: 'nav-label'%>
@@ -49,15 +57,15 @@
             <!-- ด้านบนหัวสุดเลยสัส -->
           </nav>
         </div>
-        <div class="wrapper wrapper-content">
+        <div class="wrapper wrapper-content animated fadeInDown">
           <%= yield %>
         </div>
         <div class="footer">
           <div class="pull-right">
-            10GB of <strong>250GB</strong> Free.
+            <a href="https://github.com/game1095/postapp"><strong>เข้ามารับชมความกากได้ที่ลิ้งนี้</strong></a>
           </div>
           <div>
-            <strong>Copyright</strong> Example Company &copy; 2014-2015
+            Make with <i class="fa fa-heart-o"></i> by Megamind
           </div>
         </div>
       </div>

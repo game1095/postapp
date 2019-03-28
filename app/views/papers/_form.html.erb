@@ -9,47 +9,68 @@
       </div>
       <div class="ibox-content">
         <%= form_for @paper do |form| %>
-          <div class="form-group">
-            <%= form.label :ประจำวันที่ , class:'control-label' %>
-            <%= form.date_field :day , class:'form-control' %>
-          </div>
+          <div class="row">
+            <div class="col-lg-6">
 
-          <div class="form-group">
-            <%= form.label :ลงวันที่ , class:'control-label' %>
-            <%= form.date_field :dated , class:'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :ประจำวันที่ , class:'control-label' %>
+                <%= form.date_field :day , class:'form-control' , value: Time.now.strftime('%Y-%m-%d')  %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :รายละเอียด , class: 'control-label' %>
-            <%= form.text_area :description , class: 'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :ลงวันที่ , class:'control-label' %>
+                <%= form.date_field :dated , class:'form-control' , require: true %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :แผนก , class: 'control-label' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :รายละเอียด , class: 'control-label' %>
+                <%= form.text_area :description , class: 'form-control' , require: true %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :ความผิดพลาด , class: 'control-label' %>
-            <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบุแผนก"} , require: true  , class: 'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :แผนก , class: 'control-label' %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :การดำเนินการ  , class: 'control-label' %>
-            <%= form.collection_select :operation_id , Operation.all , :id , :name , {prompt: 'โปรดระบุการดำเนินการ'} , require: true , class: 'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :ความผิดพลาด , class: 'control-label' %>
+                <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบุแผนก"} , require: true  , class: 'form-control' %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :ต้นทาง , class: 'control-label' %>
-            <%= form.collection_select  :source_id , Source.all , :id , :name , {prompt: 'โปรดระบุต้นทาง'} , require: true , class: 'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :การดำเนินการ  , class: 'control-label' %>
+                <%= form.collection_select :operation_id , Operation.all , :id , :name , {prompt: 'โปรดระบุการดำเนินการ'} , require: true , class: 'form-control' %>
+              </div>
 
-          <div class="form-group">
-            <%= form.label :หมายเหตุ , class: 'control-label' %>
-            <%= form.text_area :remark , class: 'form-control' %>
-          </div>
+              <div class="form-group">
+                <%= form.label :ต้นทาง , class: 'control-label' %>
+                <%= form.collection_select  :source_id , Source.all , :id , :name , {prompt: 'โปรดระบุต้นทาง'} , require: true , class: 'form-control' %>
+              </div>
 
-          <div class="form-group">
-            <%= form.submit 'บันทึกผล' , class: 'btn btn-primary' %>
+              <div class="form-group">
+                <%= form.label :หมายเหตุ , class: 'control-label' %>
+                <%= form.text_area :remark , class: 'form-control' %>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <%= form.label :พนักงานที่ทำผิดพลาด , class:'control-label' %>
+                <select multiple="multiple" name="paper[staff_ids][]" class="form-control" size=23  , required>
+                  <%= @staffs.each do |s| %>
+                    <option value="<%= s.id %>"><%= s.name %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="hr-line-dashed"></div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <%= form.submit 'บันทึกผล' , class: 'btn btn-primary btn-rounded btn-block' %>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>

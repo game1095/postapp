@@ -5,6 +5,7 @@ class PapersController < ApplicationController
 
   def new
     @paper = Paper.new
+    @staffs = Staff.all
   end
 
   def create
@@ -18,6 +19,7 @@ class PapersController < ApplicationController
 
   def edit
     @paper = Paper.find(params[:id])
+    @staffs = Staff.all
   end
 
   def update
@@ -31,6 +33,8 @@ class PapersController < ApplicationController
 
   def show
     @paper = Paper.find(params[:id])
+    @staff_paper = @paper.staff
+    @count = 0
   end
 
   def destroy
@@ -44,6 +48,6 @@ class PapersController < ApplicationController
 
   private
     def paper_params
-      params.require(:paper).permit(:day , :dated , :description , :mistake_type_id , :operation_id , :source_id , :remark)
+      params.require(:paper).permit(:day , :dated , :description , :mistake_type_id , :operation_id , :source_id , :remark , staff_ids:[])
     end
 end

@@ -12,6 +12,6 @@ class Paper < ApplicationRecord
       return "badge badge-success"
     end
   end
-
   
+
 end

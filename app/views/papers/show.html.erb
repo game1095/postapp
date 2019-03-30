@@ -78,7 +78,7 @@
             </div>
             <div class="">
               <% @staff_paper.each do |a| %>
-                <%= @count = @count+1 %>. <%= link_to "#{a.name}" , staff_path(a.id) %>  /
+                <%= @count = @count+1 %>. <%= a.name %>  /
               <% end %>
             </div>
           </div>
@@ -96,4 +96,5 @@
       </div>
     </div>
   </div>
+
 </div>

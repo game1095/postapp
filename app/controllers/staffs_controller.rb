@@ -31,6 +31,9 @@ class StaffsController < ApplicationController
 
   def show
     @staff = Staff.find(params[:id])
+    @paper_staff = @staff.paper
+
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#{@paper_staff}"
   end
 
   def destroy

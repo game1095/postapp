@@ -41,4 +41,15 @@
     </div>
   </div>
 
+  <div class="col-md-6">
+    <div class="ibox-title">
+      <h5>ป.143ที่ <%=  %> ทำผิดพลาด</h5>
+    </div>
+    <div class="ibox-content profile-content">
+      <% @paper_staff.each do |a| %>
+       <%= link_to "ป.143 หมายเลข #{a.id}" , paper_path(a.id) %> /
+      <% end %>
+    </div>
+  </div>
+
 </div>

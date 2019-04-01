@@ -5,7 +5,6 @@ class StaffsController < ApplicationController
 
   def new
     @staff = Staff.new
-    puts "#{@staff}"
   end
 
   def create
@@ -33,8 +32,6 @@ class StaffsController < ApplicationController
   def show
     @staff = Staff.find(params[:id])
     @paper_staff = @staff.paper
-
-    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<#{@paper_staff}"
   end
 
   def destroy

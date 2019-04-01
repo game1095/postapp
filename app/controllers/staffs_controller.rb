@@ -5,6 +5,7 @@ class StaffsController < ApplicationController
 
   def new
     @staff = Staff.new
+    puts "#{@staff}"
   end
 
   def create

@@ -34,7 +34,7 @@
               <td><%= paper.dated %></td>
               <td><%= paper.source.name %></td>
               <td><%= paper.mistake_type.name %></td>
-              <td>แผนก....</td>
+              <td><%= paper.department.name %></td>
               <td><span class="<%= paper.operationCheck%>"><%= paper.operation.name %></span></td>
               <td>
                 <%= link_to  paper_path(paper.id) , class: 'btn btn-primary btn-circle' do %>

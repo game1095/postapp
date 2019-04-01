@@ -31,7 +31,7 @@
                 <td><%= staff.id %></td>
                 <td><%= staff.name %> </td>
                 <td><%= staff.gender.name %></td>
-                <td>.......</td>
+                <td><%= staff.position.name%></td>
                 <td><%= staff.department.name %></td>
                 <td>
                   <%= link_to  staff_path(staff.id) , class: 'btn btn-primary btn-circle' do %>

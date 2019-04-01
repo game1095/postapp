@@ -2,6 +2,7 @@ class Paper < ApplicationRecord
   belongs_to :mistake_type
   belongs_to :operation
   belongs_to :source
+  belongs_to :department
 
   has_and_belongs_to_many :staff
 
@@ -12,6 +13,6 @@ class Paper < ApplicationRecord
       return "badge badge-success"
     end
   end
-  
+
 
 end

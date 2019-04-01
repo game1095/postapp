@@ -29,11 +29,12 @@
 
               <div class="form-group">
                 <%= form.label :แผนก , class: 'control-label' %>
+                <%= form.collection_select :department_id , Department.all , :id , :name , {prompt:'โปรดระบุแผนก'}  , require: true , class:'form-control' %>
               </div>
 
               <div class="form-group">
                 <%= form.label :ความผิดพลาด , class: 'control-label' %>
-                <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบุแผนก"} , require: true  , class: 'form-control' %>
+                <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบความผิดพลาด"} , require: true  , class: 'form-control' %>
               </div>
 
               <div class="form-group">

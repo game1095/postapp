@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_155008) do
+ActiveRecord::Schema.define(version: 2019_04_01_120639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_155008) do
     t.bigint "source_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_papers_on_department_id"
     t.index ["mistake_type_id"], name: "index_papers_on_mistake_type_id"
     t.index ["operation_id"], name: "index_papers_on_operation_id"
     t.index ["source_id"], name: "index_papers_on_source_id"
@@ -59,6 +61,12 @@ ActiveRecord::Schema.define(version: 2019_03_19_155008) do
     t.bigint "paper_id", null: false
     t.index ["paper_id", "staff_id"], name: "index_papers_staffs_on_paper_id_and_staff_id"
     t.index ["staff_id", "paper_id"], name: "index_papers_staffs_on_staff_id_and_paper_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sources", force: :cascade do |t|
@@ -74,13 +82,20 @@ ActiveRecord::Schema.define(version: 2019_03_19_155008) do
     t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "position_id"
+    t.text "address"
+    t.integer "tel"
+    t.string "email"
     t.index ["department_id"], name: "index_staffs_on_department_id"
     t.index ["gender_id"], name: "index_staffs_on_gender_id"
+    t.index ["position_id"], name: "index_staffs_on_position_id"
   end
 
+  add_foreign_key "papers", "departments"
   add_foreign_key "papers", "mistake_types"
   add_foreign_key "papers", "operations"
   add_foreign_key "papers", "sources"
   add_foreign_key "staffs", "departments"
   add_foreign_key "staffs", "genders"
+  add_foreign_key "staffs", "positions"
 end

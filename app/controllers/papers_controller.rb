@@ -48,6 +48,6 @@ class PapersController < ApplicationController
 
   private
     def paper_params
-      params.require(:paper).permit(:day , :dated , :description , :mistake_type_id , :operation_id , :source_id , :remark , staff_ids:[])
+      params.require(:paper).permit(:day , :dated , :description , :mistake_type_id , :operation_id , :source_id , :department_id , :remark  , staff_ids:[])
     end
 end

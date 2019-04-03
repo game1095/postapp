@@ -19,32 +19,32 @@
 
               <div class="form-group">
                 <%= form.label :ลงวันที่ , class:'control-label' %>
-                <%= form.date_field :dated , class:'form-control' , require: true %>
+                <%= form.date_field :dated , class:'form-control' , required: true %>
               </div>
 
               <div class="form-group">
                 <%= form.label :รายละเอียด , class: 'control-label' %>
-                <%= form.text_area :description , class: 'form-control' , require: true %>
+                <%= form.text_area :description , class: 'form-control' , required: true %>
               </div>
 
               <div class="form-group">
                 <%= form.label :แผนก , class: 'control-label' %>
-                <%= form.collection_select :department_id , Department.all , :id , :name , {prompt:'โปรดระบุแผนก'}  , require: true , class:'form-control' %>
+                <%= form.collection_select :department_id , Department.all , :id , :name , {prompt:'โปรดระบุแผนก'}  , required: true , class:'form-control' %>
               </div>
 
               <div class="form-group">
                 <%= form.label :ความผิดพลาด , class: 'control-label' %>
-                <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบความผิดพลาด"} , require: true  , class: 'form-control' %>
+                <%= form.collection_select :mistake_type_id , MistakeType.all , :id , :name , {prompt: "โปรดระบความผิดพลาด"} , required: true  , class: 'form-control' %>
               </div>
 
               <div class="form-group">
                 <%= form.label :การดำเนินการ  , class: 'control-label' %>
-                <%= form.collection_select :operation_id , Operation.all , :id , :name , {prompt: 'โปรดระบุการดำเนินการ'} , require: true , class: 'form-control' %>
+                <%= form.collection_select :operation_id , Operation.all , :id , :name , {prompt: 'โปรดระบุการดำเนินการ'} , required: true , class: 'form-control' %>
               </div>
 
               <div class="form-group">
                 <%= form.label :ต้นทาง , class: 'control-label' %>
-                <%= form.collection_select  :source_id , Source.all , :id , :name , {prompt: 'โปรดระบุต้นทาง'} , require: true , class: 'form-control' %>
+                <%= form.collection_select  :source_id , Source.all , :id , :name , {prompt: 'โปรดระบุต้นทาง'} , required: true , class: 'form-control' %>
               </div>
 
               <div class="form-group">
@@ -57,11 +57,7 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <%= form.label :พนักงานที่ทำผิดพลาด , class:'control-label' %>
-                <select multiple="multiple" name="paper[staff_ids][]" class="form-control" size=23  , required>
-                  <%= @staffs.each do |s| %>
-                    <option value="<%= s.id %>"><%= s.name %></option>
-                  <% end %>
-                </select>
+                <%= form.collection_select :staff_ids, @staffs  ,:id , :name,{ prompt: "-"},{ multiple: true, size: 23 , class:'form-control' } %>
               </div>
             </div>
           </div>

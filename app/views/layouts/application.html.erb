@@ -9,7 +9,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true  %>
 </head>
-<body>
+<body class="">
   <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
       <div class="sidebar-collapse">
@@ -31,22 +31,22 @@
               </div>
             </li>
               <li>
-                <%= link_to 'Dashboard' , dashboards_path  ,class: 'nav-label' %>
+                <%= link_to '<i class="fa fa-th-large"></i> Dashboard'.html_safe , dashboards_path  ,class: 'nav-label' %>
               </li>
               <li>
-                <%= link_to 'ป.143' , papers_path ,class: 'nav-label' %>
+                <%= link_to '<i class="fa fa-clipboard"></i>ป.143'.html_safe , papers_path ,class: 'nav-label' %>
               </li>
               <li>
-                <%= link_to 'รายชื่อพนักงาน' , staffs_path , class: 'nav-label' %>
+                <%= link_to '<i class="fa fa-users"></i>รายชื่อพนักงาน'.html_safe , staffs_path , class: 'nav-label' %>
               </li>
               <li>
-                <%= link_to 'รายงาน' , class: 'nav-label'%>
+                <%= link_to '<i class="fa fa-bar-chart-o"></i>รายงาน'.html_safe , class: 'nav-label'%>
               </li>
               <li>
-                <%= link_to 'กระดานผู้นำ' , class: 'nav-label' %>
+                <%= link_to '<i class="fa fa-trophy"></i>กระดานผู้นำ'.html_safe , leaderboards_path , class: 'nav-label' %>
               </li>
               <li>
-                <%= link_to 'FAQ' , class: 'nav-label'%>
+                <%= link_to '<i class="fa fa-question"></i>วิธีการใช้งาน (FAQ)'.html_safe , class: 'nav-label'%>
               </li>
           </ul>
       </div>

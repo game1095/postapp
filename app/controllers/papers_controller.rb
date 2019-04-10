@@ -20,9 +20,6 @@ class PapersController < ApplicationController
   def edit
     @paper = Paper.find_by(id: params[:id])
     @staffs = Staff.all
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>name #{@staffs}"
-    @staff_paper = @paper.staff
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.#{@staff_paper.ids}"
   end
 
   def update

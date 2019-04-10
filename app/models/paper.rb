@@ -3,8 +3,8 @@ class Paper < ApplicationRecord
   belongs_to :operation
   belongs_to :source
   belongs_to :department
-
   has_and_belongs_to_many :staff
+  default_scope { order(operation_id: :ASC) }
 
   def operationCheck
     if self.operation.id == 2

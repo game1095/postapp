@@ -1,6 +1,6 @@
 class PapersController < ApplicationController
   def index
-    @papers = Paper.all
+    @papers = Paper.all.page(params[:page])
   end
 
   def new

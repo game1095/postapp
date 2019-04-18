@@ -25,12 +25,12 @@
                     <span>
                       <i class="fa fa-users fa-5x"></i>
                     </span>
+                    <div class="m-t-xs font-bold"><%= staff.department.name %></div>
                     <div class="m-t-xs font-bold"><span class="label label-info"><%= staff.position.name %></span></div>
                   </div>
               </div>
               <div class="col-sm-8">
                   <h3><strong><%= staff.name %></strong></h3>
-                  <p><i class="fa fa-map-marker"></i> <%= staff.department.name %></p>
                   <address>
                       <strong><span class="fa fa-mobile"></span> หมายเลขโทรศัพท์ : </strong> <%= staff.tel %><br>
                       <strong><span class="fa fa-envelope-o"></span> Email : </strong><%= staff.email %>

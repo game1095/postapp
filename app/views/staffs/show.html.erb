@@ -35,6 +35,9 @@
         <p>
           อีเมล์ : <%= @staff.email %>
         </p>
+        <div class="form-group">
+          <%= link_to 'ย้อนกลับ' , staffs_path , class:'btn btn-warning btn-rounded btn-block' %>
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +70,7 @@
             <% end %>
           </tbody>
         </table>
+        <%= will_paginate @paper_staff, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>

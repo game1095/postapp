@@ -1,6 +1,6 @@
 class StaffsController < ApplicationController
   def index
-    @staffs = Staff.all.order('id ASC')
+    @staffs = Staff.all.order('department_id ASC , position_id DESC').page(params[:page])
   end
 
   def new
@@ -31,7 +31,7 @@ class StaffsController < ApplicationController
 
   def show
     @staff = Staff.find(params[:id])
-    @paper_staff = @staff.paper
+    @paper_staff = @staff.paper.page(params[:page])
   end
 
   def destroy

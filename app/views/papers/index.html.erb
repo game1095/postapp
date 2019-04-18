@@ -30,8 +30,8 @@
           <% @papers.each do |paper| %>
             <tr>
               <td><%= paper.id %></td>
-              <td><%= paper.day %> </td>
-              <td><%= paper.dated %></td>
+              <td><%= paper.daystrf %> </td>
+              <td><%= paper.datedstrf %></td>
               <td><%= paper.source.name %></td>
               <td><%= paper.mistake_type.name %></td>
               <td><%= paper.department.name %></td>
@@ -51,6 +51,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate @papers, renderer: BootstrapPagination::Rails %>
     </div>
   </div>
 </div>
